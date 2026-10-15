@@ -8,12 +8,13 @@
     {"name": "One-page websites", "keywords": ["one-pager", "one page", "homepage", "landing"]},
     {"name": "Login or multi-page websites", "keywords": ["multi-page", "login", "pages", "portal"]},
     {"name": "Website fixes", "keywords": ["fix", "fixes", "update", "broken"]},
-    {"name": "Free AI chatbot with monthly plans", "keywords": ["chatbot", "chat", "bot"]}
+    {"name": "Free AI chatbot with the $49/mo multi-page plan", "keywords": ["chatbot", "chat", "bot"]}
   ],
   "faq": [
-    {"q": "How much is a one-pager?", "a": "A one-page site is $200 one-time, or $200 + $29/mo with hosting, care, and a free AI chatbot."},
-    {"q": "What does the monthly plan include?", "a": "The $29/mo one-pager plan includes hosting, care, and a free AI chatbot. The $49/mo plan for login or multi-page sites includes the free chatbot."},
-    {"q": "How much is a multi-page or login site?", "a": "A login or multi-page site is $450 one-time, or $450 + $49/mo with the free chatbot."},
+    {"q": "How much is a one-pager?", "a": "A one-page site is $200 one-time. There is no monthly plan for one-pagers."},
+    {"q": "What does the monthly plan include?", "a": "The only monthly plan is $49/mo for login or multi-page sites. It includes hosting, care, and the free AI chatbot. One-pagers are a one-time $200 build with no monthly plan."},
+    {"q": "Does the one-pager include hosting?", "a": "No. A one-pager is a one-time $200 build. Hosting, care, and the free AI chatbot come with the $450 + $49/mo login or multi-page plan."},
+    {"q": "How much is a multi-page or login site?", "a": "A login or multi-page site is $450 one-time, or $450 + $49/mo with hosting, care, and the free AI chatbot."},
     {"q": "How much do fixes cost?", "a": "Fixes are $60-120."},
     {"q": "How long until my site is live?", "a": "Your site goes live days after you approve and pay."},
     {"q": "Do you work in my state?", "a": "Yes. TTA is based in Thornton, CO and works with small businesses nationwide, remotely."},
