@@ -8,13 +8,13 @@
     {"name": "One-page websites", "keywords": ["one-pager", "one page", "homepage", "landing"]},
     {"name": "Login or multi-page websites", "keywords": ["multi-page", "login", "pages", "portal"]},
     {"name": "Website fixes", "keywords": ["fix", "fixes", "update", "broken"]},
-    {"name": "Free AI chatbot with the $49/mo multi-page plan", "keywords": ["chatbot", "chat", "bot"]}
+    {"name": "Free AI chatbot with the monthly plans", "keywords": ["chatbot", "chat", "bot"]}
   ],
   "faq": [
-    {"q": "How much is a one-pager?", "a": "A one-page site is $200 one-time, or $200 + $29/mo for care and the free AI chatbot. Hosting is not included."},
-    {"q": "What does the monthly plan include?", "a": "One-pagers: $200 + $29/mo for care and the free AI chatbot (no hosting). Login or multi-page sites: $450 + $49/mo with hosting, care, and the free AI chatbot."},
-    {"q": "Does the one-pager include hosting?", "a": "No. The one-pager plan ($200, or $200 + $29/mo) covers care and the free AI chatbot but not hosting. Hosting comes only with the $450 + $49/mo login or multi-page plan."},
-    {"q": "How much is a multi-page or login site?", "a": "A login or multi-page site is $450 one-time, or $450 + $49/mo with hosting, care, and the free AI chatbot."},
+    {"q": "How much is a one-pager?", "a": "A one-page site is $200 one-time, or $200 + $29/mo for care, updates, and the free AI chatbot."},
+    {"q": "What does the monthly plan include?", "a": "Monthly plans cover care, updates, and the free AI chatbot: $200 + $29/mo for one-pagers, $450 + $39/mo for login or multi-page sites. Hosting is not included."},
+    {"q": "Do you host my site?", "a": "No plan includes ongoing hosting. You host the site yourself, and we help you set it up."},
+    {"q": "How much is a multi-page or login site?", "a": "A login or multi-page site is $450 one-time, or $450 + $39/mo for care, updates, and the free AI chatbot."},
     {"q": "How much do fixes cost?", "a": "Fixes are $60-120."},
     {"q": "How long until my site is live?", "a": "Your site goes live days after you approve and pay."},
     {"q": "Do you work in my state?", "a": "Yes. TTA is based in Thornton, CO and works with small businesses nationwide, remotely."},
