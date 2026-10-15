@@ -6,6 +6,7 @@ Static site (index.html, styles.css, main.js, chat/). No build step. Host on Git
 Paid tier buttons carry `data-stripe-link="STRIPE_LINK_*"` and fall back to a mailto until set.
 Paste live Payment Link URLs (live Stripe Payment Link URLs) into `STRIPE_LINKS` at the top of `main.js`:
 - STRIPE_LINK_ONEPAGER ($200 one-time)
+- STRIPE_LINK_ONEPAGER_MONTHLY ($200 + $29/mo for care and the free AI chatbot, no hosting)
 - STRIPE_LINK_MULTIPAGE ($450 one-time)
 - STRIPE_LINK_MULTIPAGE_MONTHLY ($450 + $49/mo with hosting, care, and the free AI chatbot)
 Do not use test links on the live site.
