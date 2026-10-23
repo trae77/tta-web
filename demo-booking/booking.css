@@ -1,0 +1,16 @@
+.bk{max-width:720px;margin:0 auto;padding:40px 20px 64px}
+.bk .card{background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);padding:24px;margin:0 0 16px}
+.bk .opts{display:grid;gap:12px}
+.bk button.opt,.bk .chip{font:500 1rem Inter,sans-serif;text-align:left;border:1px solid #CBD5E1;background:#fff;color:var(--ink);border-radius:var(--r);padding:14px 16px;cursor:pointer;min-height:44px}
+.bk button.opt:hover,.bk .chip:hover,.bk .sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-d)}
+.bk .days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}
+.bk .days .chip{flex:0 0 auto;text-align:center}
+.bk .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.bk .slots .chip{text-align:center;padding:10px}
+.bk label{display:block;font-weight:500;color:var(--ink);margin:12px 0 4px}
+.bk input,.bk textarea{width:100%;font:400 1rem Inter,sans-serif;border:1px solid #CBD5E1;border-radius:8px;padding:12px}
+.bk .err{color:#B91C1C;min-height:1.5em}.bk .muted{font-size:.9rem}
+.bk .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.bk .back{background:none;border:0;color:var(--accent);cursor:pointer;font:500 1rem Inter,sans-serif;padding:0;margin-bottom:12px}
+.bk table{width:100%;border-collapse:collapse;font-size:.95rem}.bk td,.bk th{padding:8px;border-bottom:1px solid #E2E8F0;text-align:left;vertical-align:top}
+.bk button.btn{font:500 1rem Inter,sans-serif;cursor:pointer;border:0}.bk button.btn.ghost{border:1px solid var(--accent)}.bk button:disabled{opacity:.6}
