@@ -83,6 +83,7 @@
 <h2>How would you like to get started?</h2>
 <fieldset><legend>Investment preference</legend>
 <label class="opt"><input type="radio" name="pay" value="monthly" required><span><b>$0 down monthly plan</b> (most popular)<small>$0 down, care and hosting included. You own the site after 12 paid months, and your bill drops in month 13.</small></span></label>
+<label class="opt"><input type="radio" name="pay" value="prepay"><span><b>Pay for the year upfront, 15% off</b><small>Counts as all 12 payments, so the site is yours right away, and the Month 13+ rate starts when your prepaid year ends (e.g., $2,539 for Get Found).</small></span></label>
 <label class="opt"><input type="radio" name="pay" value="once"><span><b>Pay once upfront</b><small>$500 one-page or $1,200 multi-page. Self-host it, or add Care for $69/mo.</small></span></label></fieldset>
 <fieldset><legend>Where should we send your plan?</legend>
 <input type="text" name="name" maxlength="80" placeholder="Your name" autocomplete="name" required>
@@ -100,10 +101,10 @@
 <script>
 window.PF_PRICES={
  plans:{
-  website:{name:"Website",down:129,owner:69,ownerName:"Care",link:"https://buy.stripe.com/7sY6oH94139A21edKs7ss0c",ownerLink:"https://buy.stripe.com/bJecN52FD11s49mfSA7ss0f",saveMo:70,saveYr:840,comp:199,pages:"one"},
-  getfound:{name:"Get Found",down:249,owner:199,ownerName:"Get Found (site owner)",link:"https://buy.stripe.com/00w4gzfspeSieO0cGo7ss0d",ownerLink:"https://buy.stripe.com/cNi00j9417pQbBO6i07ss0g",saveMo:247,saveYr:2964,comp:496,pages:"multi"},
-  nml:{name:"Never Miss a Lead",down:349,owner:279,ownerName:"Never Miss a Lead (site owner)",link:"https://buy.stripe.com/bJe8wPdkhfWm8pC0XG7ss0e",ownerLink:"https://buy.stripe.com/4gM00jgwtbG60Xa5dW7ss0h",saveMo:546,saveYr:6552,comp:895,pages:"multi"},
-  tg:{name:"Total Growth",down:449,owner:379,ownerName:"Total Growth (site owner)",link:"https://buy.stripe.com/9B66oHdkh7pQeO0gWE7ss0u",ownerLink:"https://buy.stripe.com/14AaEXeolbG69tG0XG7ss0R",saveMo:1398,saveYr:16776,comp:1847,pages:"multi"}
+  website:{prepay:1315,prepayLink:"https://buy.stripe.com/6oU00j2FD5hI9tG6i07ss0W",name:"Website",down:129,owner:69,ownerName:"Care",link:"https://buy.stripe.com/7sY6oH94139A21edKs7ss0c",ownerLink:"https://buy.stripe.com/bJecN52FD11s49mfSA7ss0f",saveMo:70,saveYr:840,comp:199,pages:"one"},
+  getfound:{prepay:2539,prepayLink:"https://buy.stripe.com/3cI6oHeoleSigW821K7ss0X",name:"Get Found",down:249,owner:199,ownerName:"Get Found (site owner)",link:"https://buy.stripe.com/00w4gzfspeSieO0cGo7ss0d",ownerLink:"https://buy.stripe.com/cNi00j9417pQbBO6i07ss0g",saveMo:247,saveYr:2964,comp:496,pages:"multi"},
+  nml:{prepay:3559,prepayLink:"https://buy.stripe.com/eVqeVdcgd39A8pC6i07ss0Y",name:"Never Miss a Lead",down:349,owner:279,ownerName:"Never Miss a Lead (site owner)",link:"https://buy.stripe.com/bJe8wPdkhfWm8pC0XG7ss0e",ownerLink:"https://buy.stripe.com/4gM00jgwtbG60Xa5dW7ss0h",saveMo:546,saveYr:6552,comp:895,pages:"multi"},
+  tg:{prepay:4579,prepayLink:"https://buy.stripe.com/8x2cN51BzcKa0Xa21K7ss0Z",name:"Total Growth",down:449,owner:379,ownerName:"Total Growth (site owner)",link:"https://buy.stripe.com/9B66oHdkh7pQeO0gWE7ss0u",ownerLink:"https://buy.stripe.com/14AaEXeolbG69tG0XG7ss0R",saveMo:1398,saveYr:16776,comp:1847,pages:"multi"}
  },
  build:{one:500,oneLink:"https://buy.stripe.com/cNiaEX2FD6lM21eeOw7ss0i",multi:1200,multiLink:"https://buy.stripe.com/aFa6oH4NLbG649m7m47ss0j"},
  care:69,careLink:"https://buy.stripe.com/bJecN52FD11s49mfSA7ss0f",
