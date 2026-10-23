@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>60-Second Growth &amp; Plan Finder | TTA Web Dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.pf{max-width:640px;margin:0 auto;padding:24px 16px 96px}
+.pf .bar{height:6px;background:#E2E8F0;border-radius:99px;overflow:hidden;margin:0 0 8px}.pf .bar i{display:block;height:100%;background:var(--accent);width:20%;transition:width .2s}
+.pf .stepno{font-size:.85rem;margin:0 0 16px}
+.pf fieldset{border:0;padding:0;margin:0 0 24px}.pf legend{color:var(--ink);font-weight:500;margin:0 0 8px;font-size:1.05rem}
+.pf .hint{font-size:.85rem;margin:-4px 0 8px}
+.pf input[type=text],.pf input[type=email],.pf input[type=tel],.pf textarea{width:100%;box-sizing:border-box;font:inherit;padding:12px 14px;border:1px solid #CBD5E1;border-radius:var(--r);background:#fff;color:var(--ink);margin:0 0 8px}
+.pf .opt{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);padding:14px;margin:0 0 8px;cursor:pointer;color:var(--ink)}
+.pf .opt input{margin-top:4px;width:20px;height:20px;flex:none;accent-color:var(--accent)}
+.pf .opt:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.pf .opt small{display:block;color:var(--body)}
+.pf .nav2{display:flex;gap:12px;position:sticky;bottom:0;background:var(--paper);padding:12px 0}.pf .nav2 .btn{flex:1;text-align:center;border:0;font:500 1rem Inter,sans-serif;cursor:pointer;margin:0}
+.pf .err{color:#B91C1C;min-height:1.4em;font-size:.95rem}
+.pf .result{background:#fff;border:2px solid var(--accent);border-radius:var(--r);padding:24px}
+.pf .result .price{margin:0}
+.pf .hp{position:absolute;left:-9999px}
+</style>
+</head><body>
+<header class="top"><div class="wrap nav"><a class="logo" href="../">TTA</a><nav class="links"><a href="../#plans">Plans</a><a href="../compare/">Compare</a><a href="../#contact">Contact</a></nav></div></header>
+<main class="pf">
+<h1>The 60-Second Growth &amp; Plan Finder</h1>
+<p class="lead">Let's figure out the exact setup you need to dominate your local market.</p>
+<div class="bar"><i id="pf-bar"></i></div><p class="stepno" id="pf-stepno">Step 1 of 5</p>
+<form id="pf" novalidate>
+<section data-step="1">
+<h2>Your business</h2>
+<fieldset><legend>What is your business name?</legend><p class="hint">Exact legal or DBA name, the way Google should show it.</p><input type="text" name="business" maxlength="120" autocomplete="organization" required></fieldset>
+<fieldset><legend>What is your main industry or trade?</legend><p class="hint">e.g. HVAC, landscaping, roofing, legal, general contractor</p><input type="text" name="trade" maxlength="80" required></fieldset>
+<fieldset><legend>How do customers interact with your business?</legend>
+<label class="opt"><input type="radio" name="interact" value="Storefront / physical location" required>They visit our physical location or storefront</label>
+<label class="opt"><input type="radio" name="interact" value="Service-area business">We travel to their location (service-area business)</label>
+<label class="opt"><input type="radio" name="interact" value="Online / remote">100% online or remote</label></fieldset>
+</section>
+<section data-step="2" hidden>
+<h2>Your current setup</h2>
+<fieldset><legend>What is your current website situation?</legend>
+<label class="opt"><input type="radio" name="site" value="fresh" required><span>Starting fresh<small>I need a brand-new site built.</small></span></label>
+<label class="opt"><input type="radio" name="site" value="overhaul"><span>Needs a total overhaul<small>Outdated, slow, or not bringing in leads.</small></span></label>
+<label class="opt"><input type="radio" name="site" value="rescue"><span>Locked out or broken<small>Website rescue: $199 on its own, $$149 for Website/Care clients; waived on Get Found and up.</small></span></label>
+<label class="opt"><input type="radio" name="site" value="own"><span>I already own a great site<small>I just need hosting, care, SEO or automation. You get the site-owner rate from day 1.</small></span></label></fieldset>
+<fieldset><legend>Do you have a registered domain name?</legend><p class="hint">e.g. yourbusiness.com</p>
+<label class="opt"><input type="radio" name="domain" value="Yes" required>Yes</label>
+<label class="opt"><input type="radio" name="domain" value="No, needs help registering">No, I need help registering one</label></fieldset>
+<fieldset><legend>Do you have a high-res logo and brand colors ready?</legend>
+<label class="opt"><input type="radio" name="logo" value="yes" required>Yes, ready to send</label>
+<label class="opt"><input type="radio" name="logo" value="no"><span>No, add a logo and brand kit<small>$250 with a plan, $350 on its own.</small></span></label></fieldset>
+</section>
+<section data-step="3" hidden>
+<h2>Growth and lead gaps</h2>
+<fieldset><legend>Where are you losing money or leads right now?</legend><p class="hint">Check any that sound familiar. This picks your ideal plan.</p>
+<label class="opt"><input type="checkbox" name="pain" value="maps" data-tier="1">"People can't find us easily on Google Maps or AI search."</label>
+<label class="opt"><input type="checkbox" name="pain" value="calls" data-tier="2">"I miss phone calls when I'm on a job or after hours."</label>
+<label class="opt"><input type="checkbox" name="pain" value="slow" data-tier="2">"Leads fill out a form or text us, but I reply too late."</label>
+<label class="opt"><input type="checkbox" name="pain" value="reviews" data-tier="2">"Happy customers forget to leave us 5-star Google reviews."</label>
+<label class="opt"><input type="checkbox" name="pain" value="campaigns" data-tier="3">"I want automated email, text and social campaigns to stay top-of-mind."</label></fieldset>
+<fieldset><legend>Do you need any back-office or checkout tools?</legend>
+<label class="opt"><input type="checkbox" name="tools" value="quotes"><span>Quotes, invoices and pay links<small>Send estimates and get paid by text or email.</small></span></label>
+<label class="opt"><input type="checkbox" name="tools" value="maint"><span>Maintenance plan signups<small>Sell recurring service contracts online.</small></span></label>
+<label class="opt"><input type="checkbox" name="tools" value="ordering"><span>Online ordering<small>Restaurants, retail or direct menu checkout.</small></span></label>
+<label class="opt"><input type="checkbox" name="tools" value="none">None right now</label></fieldset>
+<fieldset><legend>How many core services do you offer?</legend>
+<label class="opt"><input type="radio" name="pages" value="one" required><span>Just 1 core service, or a startup launch<small>Best fit: a one-page site.</small></span></label>
+<label class="opt"><input type="radio" name="pages" value="multi"><span>Multiple services or locations<small>They need separate pages to rank: a multi-page site.</small></span></label></fieldset>
+</section>
+<section data-step="4" hidden>
+<h2>Your AI chat bot blueprint</h2>
+<fieldset><legend>What are the top 3 questions customers always call to ask?</legend><p class="hint">e.g. "What are your rates?", "Do you serve [city]?", "How soon can you come out?"</p>
+<input type="text" name="q1" maxlength="160" placeholder="Question 1"><input type="text" name="q2" maxlength="160" placeholder="Question 2"><input type="text" name="q3" maxlength="160" placeholder="Question 3"></fieldset>
+<fieldset><legend>What is the #1 action you want a lead to take?</legend>
+<label class="opt"><input type="radio" name="action" value="Book a calendar appointment">Book a calendar appointment</label>
+<label class="opt"><input type="radio" name="action" value="Request a callback / quote">Request a callback or quote</label>
+<label class="opt"><input type="radio" name="action" value="Call the office phone">Call the office phone right away</label></fieldset>
+</section>
+<section data-step="5" hidden>
+<h2>How would you like to get started?</h2>
+<fieldset><legend>Investment preference</legend>
+<label class="opt"><input type="radio" name="pay" value="monthly" required><span><b>$0 down monthly plan</b> (most popular)<small>$0 down, care and hosting included. You own the site after 12 paid months, and your bill drops in month 13.</small></span></label>
+<label class="opt"><input type="radio" name="pay" value="once"><span><b>Pay once upfront</b><small>$500 one-page or $1,200 multi-page. Self-host it, or add Care for $69/mo.</small></span></label></fieldset>
+<fieldset><legend>Where should we send your plan?</legend>
+<input type="text" name="name" maxlength="80" placeholder="Your name" autocomplete="name" required>
+<input type="email" name="email" maxlength="120" placeholder="Email" autocomplete="email" required>
+<input type="tel" name="phone" maxlength="25" placeholder="Phone (optional)" autocomplete="tel">
+<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div id="pf-ts"></div></fieldset>
+</section>
+<p class="err" id="pf-err" role="alert"></p>
+<div class="nav2"><button type="button" class="btn ghost" id="pf-back" hidden>Back</button><button type="submit" class="btn" id="pf-next">Next</button></div>
+</form>
+<div id="pf-result" hidden></div>
+</main>
+<script>
+window.PF_PRICES={
+ plans:{
+  website:{name:"Website",down:129,owner:69,ownerName:"Care",link:"https://buy.stripe.com/7sY6oH94139A21edKs7ss0c",ownerLink:"https://buy.stripe.com/bJecN52FD11s49mfSA7ss0f",saveMo:70,saveYr:840,comp:199,pages:"one"},
+  getfound:{name:"Get Found",down:249,owner:199,ownerName:"Get Found (site owner)",link:"https://buy.stripe.com/00w4gzfspeSieO0cGo7ss0d",ownerLink:"https://buy.stripe.com/cNi00j9417pQbBO6i07ss0g",saveMo:247,saveYr:2964,comp:496,pages:"multi"},
+  nml:{name:"Never Miss a Lead",down:349,owner:279,ownerName:"Never Miss a Lead (site owner)",link:"https://buy.stripe.com/bJe8wPdkhfWm8pC0XG7ss0e",ownerLink:"https://buy.stripe.com/4gM00jgwtbG60Xa5dW7ss0h",saveMo:546,saveYr:6552,comp:895,pages:"multi"},
+  tg:{name:"Total Growth",down:449,owner:379,ownerName:"Total Growth (site owner)",link:"https://buy.stripe.com/9B66oHdkh7pQeO0gWE7ss0u",ownerLink:"https://buy.stripe.com/14AaEXeolbG69tG0XG7ss0R",saveMo:1398,saveYr:16776,comp:1847,pages:"multi"}
+ },
+ build:{one:500,oneLink:"https://buy.stripe.com/cNiaEX2FD6lM21eeOw7ss0i",multi:1200,multiLink:"https://buy.stripe.com/aFa6oH4NLbG649m7m47ss0j"},
+ care:69,careLink:"https://buy.stripe.com/bJecN52FD11s49mfSA7ss0f",
+ rescue:199,rescueLink:"https://buy.stripe.com/14A5kDfspaC26hudKs7ss0s",rescuePlan:149,rescuePlanLink:"https://buy.stripe.com/dRm00jgwtbG6dJWfSA7ss0t",
+ logo:350,logoLink:"https://buy.stripe.com/9B6bJ15RPcKagW89uc7ss0l",logoPlan:250,logoPlanLink:"https://buy.stripe.com/9B63cv7ZX7pQeO0eOw7ss0m",
+ quotesSetup:99,quotes:29,maintSetup:149,maint:39,orderingSetup:149,ordering:59,
+ carrier:19,minMonths:6,ownAfter:12,
+ buyoutOne6:250,buyoutMulti6:600,
+ guarantee:"30-day money-back on monthly subscription fees only (excludes third-party domain and carrier fees); the site license ends on a refund.",ownerRate:"The lower monthly rate starts at Month 13, or Day 1 if you already own your site (bring your own or pay-once). An early buyout (after the 6-month minimum) transfers the site and code to you right away, but the lower monthly rate still starts at Month 13.",payonce:"The site is yours from day one, deployed to your own free-tier compatible hosting, or pair with our $69/mo Care plan anytime."
+};
+</script>
+<script src="plan-finder.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=pfTs" async defer></script>
+</body></html>
