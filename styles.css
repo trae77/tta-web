@@ -47,3 +47,15 @@ section{padding:48px 0}.shot .s2{right:-8px}
 @media(max-width:640px){.grid.work.four{grid-template-columns:1fr}}
 .addons .buy{color:#5EEAD4;font-weight:600;text-decoration:underline;justify-self:start}
 .addons small{color:#CBD5E1;font-size:.9rem;line-height:1.4}
+
+/* Quote form */
+.qform{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);padding:24px;margin:0 0 24px}
+.qrow{display:grid;gap:6px}.qrow.full{grid-column:1/-1}
+.qform label{color:var(--ink);font-weight:500}
+.qform input,.qform textarea{font:400 1rem Inter,system-ui,sans-serif;color:var(--ink);border:1px solid #CBD5E1;border-radius:var(--r);padding:12px;width:100%;box-sizing:border-box;background:#fff}
+.qform input:focus,.qform textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.qform [aria-invalid="true"]{border-color:#B91C1C}
+.qform button{border:0;cursor:pointer;font:500 1rem Inter,system-ui,sans-serif}.qform button[disabled]{opacity:.6;cursor:wait}
+.qstatus{margin:8px 0 0;font-weight:500}.qstatus.ok{color:var(--ok)}.qstatus.err{color:#B91C1C}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:640px){.qform{grid-template-columns:1fr;padding:16px}}
