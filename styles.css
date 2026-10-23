@@ -24,7 +24,7 @@ section{padding:64px 0}.alt{background:#fff}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .card{background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);padding:24px}.card.hl{border:2px solid var(--accent)}
 .price{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:2rem;color:var(--ink);margin-bottom:8px}.price small{font-size:1rem;color:var(--body);font-weight:600}
-.dark{background:var(--ink);color:#CBD5E1}.dark h2{color:#fff}
+.dark{background:var(--ink);color:#CBD5E1}.dark h2,.dark h3{color:#fff}#addons h3{margin-top:32px;scroll-margin-top:80px}.addon-jump a{margin-right:4px}
 .addons{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .addons li{border:1px solid #334155;border-radius:var(--r);padding:24px;display:grid;gap:8px}.addons span{color:#fff;font-weight:500}.addons b{color:var(--accent-d);font-family:"Space Grotesk",sans-serif;font-size:1.25rem}.addons em{font-style:normal;color:#5EEAD4;font-size:.9rem}
 details{background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);padding:16px 24px;margin-bottom:16px}summary{cursor:pointer;color:var(--ink);font-weight:500}details p{margin:16px 0 0}
