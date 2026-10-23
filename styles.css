@@ -35,3 +35,10 @@ footer{padding:32px 0 96px;font-size:.9rem;border-top:1px solid #E2E8F0}
 @media(max-width:640px){.split,.steps,.cards,.grid{grid-template-columns:1fr}.links a:nth-child(n+3){display:none}.links{gap:16px}
 section{padding:48px 0}.shot .s2{right:-8px}
 .sticky{display:block;position:fixed;left:16px;right:16px;bottom:16px;z-index:20;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;padding:16px;border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.3)}}
+
+/* See it working */
+.grid.work li{background:#fff;border:1px solid #E2E8F0;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.grid.work li>div{padding:20px 20px 12px;display:flex;flex-direction:column;flex:1}.grid.work h3{font-size:1.25rem;margin-bottom:8px}.grid.work .btn{margin-top:auto;align-self:flex-start}
+.pages{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.pages img{border:1px solid #E2E8F0;border-radius:8px}
+.logos{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.logos li{border:1px solid #E2E8F0;border-radius:var(--r);padding:24px;display:flex;align-items:center;justify-content:center;min-height:120px;background:#fff}.logos li.inv{background:var(--ink)}
+@media(max-width:640px){.pages{grid-template-columns:1fr 1fr}.logos{grid-template-columns:1fr}}

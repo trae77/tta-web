@@ -32,28 +32,37 @@ function renderDates(msg) {
   app.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { st.slot = st.day.slots.find(s => s.start === b.dataset.s); st.resched ? doResched() : form(); });
 }
 function wireBack() { const b = document.getElementById("bk"); if (b) b.onclick = services; }
+const TS_SITEKEY = "0x4AAAAAAFh5dVP0HqGzfQ4T";
+function tsRender() {
+  const el = document.getElementById("ts"); if (!el) return;
+  if (window.turnstile) { st.tsId = turnstile.render(el, { sitekey: TS_SITEKEY, theme: "auto" }); }
+  else setTimeout(tsRender, 300);
+}
 function form() {
   app.innerHTML = `<button class="back" id="bd">← Change time</button><h2>3. Your details</h2><p class="muted">${esc(st.svc.name)} · ${esc(st.day.label)}, ${esc(st.slot.label)}</p>
   <form id="f" novalidate><label for="n">Name</label><input id="n" name="name" autocomplete="name" required maxlength="80">
   <label for="p">Phone</label><input id="p" name="phone" type="tel" autocomplete="tel" required maxlength="25">
   <label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" required maxlength="120">
   <label for="o">Notes (optional)</label><textarea id="o" name="notes" rows="3" maxlength="500"></textarea>
-  <p class="err" id="er"></p><button class="btn" type="submit">Confirm booking</button></form>`;
+  <div id="ts" class="ts"></div><p class="err" id="er"></p><button class="btn" type="submit">Confirm booking</button></form>`;
   document.getElementById("bd").onclick = () => renderDates();
+  st.tsId = null; tsRender();
   document.getElementById("f").onsubmit = async ev => {
     ev.preventDefault(); const f = ev.target, er = document.getElementById("er"), btn = f.querySelector("button[type=submit]");
+    const tok = window.turnstile && st.tsId != null ? turnstile.getResponse(st.tsId) : "";
+    if (!tok) { er.textContent = "Please finish the quick human check above."; return; }
     btn.disabled = true; er.textContent = "";
     try {
-      const r = await api("/book", { service: st.svc.id, start: st.slot.start, name: f.name.value, phone: f.phone.value, email: f.email.value, notes: f.notes.value });
+      const r = await api("/book", { service: st.svc.id, start: st.slot.start, name: f.name.value, phone: f.phone.value, email: f.email.value, notes: f.notes.value, turnstile: tok });
       confirmed(r);
-    } catch (e) { btn.disabled = false; if (e.status === 409) { await dates(); renderDates(e.message); } else er.textContent = e.message; }
+    } catch (e) { btn.disabled = false; if (window.turnstile && st.tsId != null) turnstile.reset(st.tsId); if (e.status === 409) { await dates(); renderDates(e.message); } else er.textContent = e.message; }
   };
 }
 function confirmed(r) {
   app.innerHTML = `<h2>You're booked ✅</h2><p><strong>${esc(r.booking.serviceName)}</strong><br>${esc(r.booking.when)}</p>
   <div class="row"><a class="btn" href="${esc(r.icsUrl)}">Add to calendar (.ics)</a><a class="btn ghost" href="${esc(r.manageUrl)}">Reschedule or cancel</a></div>
   <p class="muted" style="margin-top:16px">Save this link to change or cancel later: <br><a href="${esc(r.manageUrl)}">${esc(r.manageUrl)}</a></p>
-  <p class="muted">Demo: no confirmation email or text is sent.</p>`;
+  <p class="muted">${r.emailed ? "A confirmation email is on its way." : "Demo: the business is notified by email. Customer confirmation emails are off in this demo."}</p>`;
 }
 async function manage(id, t) {
   let b; try { b = (await api(`/booking?id=${encodeURIComponent(id)}&t=${encodeURIComponent(t)}`)).booking; } catch (e) { app.innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }

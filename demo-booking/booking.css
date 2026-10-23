@@ -14,3 +14,5 @@
 .bk .back{background:none;border:0;color:var(--accent);cursor:pointer;font:500 1rem Inter,sans-serif;padding:0;margin-bottom:12px}
 .bk table{width:100%;border-collapse:collapse;font-size:.95rem}.bk td,.bk th{padding:8px;border-bottom:1px solid #E2E8F0;text-align:left;vertical-align:top}
 .bk button.btn{font:500 1rem Inter,sans-serif;cursor:pointer;border:0}.bk button.btn.ghost{border:1px solid var(--accent)}.bk button:disabled{opacity:.6}
+
+.ts{margin:14px 0 4px;min-height:65px}
