@@ -45,15 +45,14 @@
     tools.forEach(function (x) {
       if (x === "quotes" || x === "maint") {
         if (tgFree) { tgFree = 0; r.extras.push([x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups", "Included in Total Growth", null]); return; }
-        r.extras.push(x === "quotes" ? ["Quotes, invoices and pay links", $(P.quotesSetup) + " setup + " + $(P.quotes) + "/mo", null] : ["Maintenance plan signups", $(P.maintSetup) + " setup + " + $(P.maint) + "/mo", null]);
+        r.extras.push(x === "quotes" ? ["Quotes, invoices and pay links", $(P.quotes) + "/mo (plan member, setup waived)", null] : ["Maintenance plan signups", $(P.maint) + "/mo (plan member, setup waived)", null]);
       }
-      if (x === "ordering") r.extras.push(["Online ordering", $(P.orderingSetup) + " setup + " + $(P.ordering) + "/mo (we'll scope it with you)", null]);
     });
     var tr = (f.trade.value || "").toLowerCase(), m = r.once ? " (with Care or any plan)" : "";
-    if (/restaurant|cafe|caf\u00e9|coffee|pizza|bakery|diner|grill|bar\b|brew|food|taco|sushi|kitchen|catering|bistro/.test(tr) || tools.indexOf("ordering") > -1)
-      r.extras.push(["Restaurant Pack" + m, $(P.packRestSetup) + " + " + $(P.packRest) + "/mo: online ordering, private events page, TV menu boards and eGift card page", P.packRestLink || null]);
+    if (/restaurant|cafe|caf\u00e9|coffee|pizza|bakery|diner|grill|bar\b|brew|food|taco|sushi|kitchen|catering|bistro/.test(tr))
+      r.extras.push(["Restaurant & Bar Pack" + m, $(P.packRest) + "/mo, setup included: private events page, TV menu boards, eGift card page and QR menu page", P.packRestLink || null]);
     if (/contract|hvac|plumb|roof|landscap|electric|remodel|handyman|paint|construct|concrete|fenc|pest|clean|garage|floor|solar|pool|tree|lawn|mason|drywall|cabinet|window|gutter|siding|heat|cool|septic|excavat/.test(tr))
-      r.extras.push(["Contractor Pack" + m, $(P.packContractor) + " one time: financing page, careers page, quote/estimate form, Local Services Ads and call tracking setup", P.packContractorLink || null]);
+      r.extras.push(["Trades Pack" + m, $(P.packTrades) + "/mo, setup included: financing page, careers page with applicant follow-up, quotes/invoices/pay links and maintenance-plan signups", P.packTradesLink || null]);
     return r;
   }
   function summary(r) {
