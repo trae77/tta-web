@@ -37,8 +37,8 @@
   }
   function rec() {
     var keys = ["website", "getfound", "nml", "tg"], t = tierNum(), k = keys[t], p = P.plans[k];
-    var own = val("site") === "own", once = val("pay") === "once", multi = val("pages") === "multi" || t > 0;
-    var r = { key: k, plan: p, own: own, once: once, multi: multi, extras: [] };
+    var own = val("site") === "own", once = val("pay") === "once", pre = val("pay") === "prepay", multi = val("pages") === "multi" || t > 0;
+    var r = { key: k, plan: p, own: own, once: once, pre: pre, multi: multi, extras: [] };
     if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website rescue (plan client)", $(P.rescuePlan), P.rescuePlanLink]));
     if (val("logo") === "no") r.extras.push(once ? ["Logo and brand kit", $(P.logo) + " (" + $(P.logoPlan) + " with Care or a plan)", P.logoLink] : ["Logo and brand kit (plan client)", $(P.logoPlan), P.logoPlanLink]);
     var tools = vals("tools"), tgFree = t === 3 ? 1 : 0;
@@ -54,13 +54,14 @@
   function summary(r) {
     var p = r.plan, L = [];
     L.push("PLAN FINDER submission (ttawebdev.com/plan-finder/)");
-    L.push("Recommended: " + p.name + (r.once ? " | wants PAY ONCE" : r.own ? " | owns site, owner rate from day 1" : " | $0 down monthly"));
+    L.push("Recommended: " + p.name + (r.once ? " | wants PAY ONCE" : r.pre ? " | wants ANNUAL PREPAY " + $(p.prepay) : r.own ? " | owns site, owner rate from day 1" : " | $0 down monthly"));
     L.push("Trade: " + f.trade.value.trim() + " | Customers: " + val("interact"));
     L.push("Website: " + val("site") + " | Domain: " + val("domain") + " | Logo ready: " + val("logo"));
     L.push("Pain points: " + (vals("pain").join(", ") || "none checked"));
     L.push("Back-office: " + (vals("tools").join(", ") || "-") + " | Site size: " + (val("pages") === "multi" ? "multi-page" : "one-page"));
     if (needsBot()) { L.push("Top questions: 1) " + f.q1.value.trim() + " 2) " + f.q2.value.trim() + " 3) " + f.q3.value.trim()); L.push("#1 action: " + (val("action") || "-")); }
-    L.push("Payment preference: " + (r.once ? "pay once" : "$0 down monthly"));
+    L.push("Payment preference: " + (r.once ? "pay once" : r.pre ? "annual prepay (15% off)" : "$0 down monthly"));
+    if (f.referred_by && f.referred_by.value.trim()) L.push("Referred by: " + f.referred_by.value.trim());
     r.extras.forEach(function (e) { L.push("Extra: " + e[0] + " " + e[1]); });
     return L.join("\n").slice(0, 1990);
   }
@@ -72,6 +73,9 @@
       h += '<p class="ctas"><a class="btn" href="' + buildLink + '">Pay ' + $(buildAmt) + " for your " + (r.multi ? "multi-page" : "one-page") + " site</a></p>";
       h += "<p>Then pick one: self-host it for free, or add Care for " + $(P.care) + "/mo" + (r.key !== "website" ? ", or the " + esc(p.ownerName) + " plan at " + $(p.owner) + "/mo to get the " + esc(p.name) + " tools" : "") + ".</p>";
       h += '<p class="ctas"><a class="btn ghost" href="' + P.careLink + '">Add Care ' + $(P.care) + "/mo</a>" + (r.key !== "website" ? '<a class="btn ghost" href="' + p.ownerLink + '">' + esc(p.ownerName) + " " + $(p.owner) + "/mo</a>" : "") + "</p>";
+    } else if (r.pre) {
+      h += '<p class="price">' + $(p.prepay) + " <small>/year, 15% off</small></p><p>Counts as all 12 payments, so the site is 100% yours right away. From year 2: " + $(p.owner) + "/mo" + (r.key === "website" ? " (Care)" : "") + ". Covered by the 30-day guarantee; no 6-month minimum.</p>";
+      h += '<p class="ctas"><a class="btn" href="' + p.prepayLink + '">Pay ' + $(p.prepay) + " for the year</a></p>";
     } else if (r.own) {
       h += '<p class="price">' + $(p.owner) + " <small>/mo</small></p><p>You already own your site, so you get the site-owner rate (" + esc(p.ownerName) + ") from day 1.</p>";
       h += '<p class="ctas"><a class="btn" href="' + p.ownerLink + '">Start ' + esc(p.ownerName) + " at " + $(p.owner) + "/mo</a></p>";
