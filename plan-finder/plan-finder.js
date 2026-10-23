@@ -39,16 +39,21 @@
     var keys = ["website", "getfound", "nml", "tg"], t = tierNum(), k = keys[t], p = P.plans[k];
     var own = val("site") === "own", once = val("pay") === "once", pre = val("pay") === "prepay", multi = val("pages") === "multi" || t > 0;
     var r = { key: k, plan: p, own: own, once: once, pre: pre, multi: multi, extras: [] };
-    if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website fixes: full rescue", $(P.rescue), P.rescueLink]));
-    if (val("logo") === "no") r.extras.push(once ? ["Logo and brand kit", $(P.logo) + " (" + $(P.logoPlan) + " with Care or a plan)", P.logoLink] : ["Logo and brand kit (plan client)", $(P.logoPlan), P.logoPlanLink]);
+    if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website rescue (plan member)", $(P.rescuePlan), P.rescuePlanLink]));
+    if (val("logo") === "no") r.extras.push(once ? ["Logo and brand kit", $(P.logo) + " (" + $(P.logoPlan) + " with Care or a plan)", P.logoLink] : ["Logo and brand kit (plan member)", $(P.logoPlan), P.logoPlanLink]);
     var tools = vals("tools"), tgFree = t === 3 ? 1 : 0;
     tools.forEach(function (x) {
       if (x === "quotes" || x === "maint") {
         if (tgFree) { tgFree = 0; r.extras.push([x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups", "Included in Total Growth", null]); return; }
-        r.extras.push([(x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups") + " (Back-office tool)", "Setup waived + " + $(P.backoffice) + "/mo", P.backofficeLink]);
+        r.extras.push(x === "quotes" ? ["Quotes, invoices and pay links", $(P.quotesSetup) + " setup + " + $(P.quotes) + "/mo", null] : ["Maintenance plan signups", $(P.maintSetup) + " setup + " + $(P.maint) + "/mo", null]);
       }
-      if (x === "ordering") r.extras.push(["Online ordering", "Setup waived + " + $(P.ordering) + "/mo (we'll scope it with you)", null]);
+      if (x === "ordering") r.extras.push(["Online ordering", $(P.orderingSetup) + " setup + " + $(P.ordering) + "/mo (we'll scope it with you)", null]);
     });
+    var tr = (f.trade.value || "").toLowerCase(), m = r.once ? " (with Care or any plan)" : "";
+    if (/restaurant|cafe|caf\u00e9|coffee|pizza|bakery|diner|grill|bar\b|brew|food|taco|sushi|kitchen|catering|bistro/.test(tr) || tools.indexOf("ordering") > -1)
+      r.extras.push(["Restaurant Pack" + m, $(P.packRestSetup) + " + " + $(P.packRest) + "/mo: online ordering, private events page, TV menu boards and eGift card page", P.packRestLink || null]);
+    if (/contract|hvac|plumb|roof|landscap|electric|remodel|handyman|paint|construct|concrete|fenc|pest|clean|garage|floor|solar|pool|tree|lawn|mason|drywall|cabinet|window|gutter|siding|heat|cool|septic|excavat/.test(tr))
+      r.extras.push(["Contractor Pack" + m, $(P.packContractor) + " one time: financing page, careers page, quote/estimate form, Local Services Ads and call tracking setup", P.packContractorLink || null]);
     return r;
   }
   function summary(r) {
@@ -85,7 +90,6 @@
     }
     h += "<p><strong>You save " + $(p.saveMo) + "/mo (" + $(p.saveYr) + "/yr)</strong> versus buying the same pieces elsewhere (" + $(p.comp) + "/mo at the low end of published prices). <a href=\"../compare/#savings\">See the math</a></p>";
     if (r.extras.length) { h += "<h3>Also for you</h3><ul>"; r.extras.forEach(function (e) { h += "<li>" + esc(e[0]) + ": " + (e[2] ? '<a href="' + e[2] + '">' + esc(e[1]) + "</a>" : esc(e[1])) + "</li>"; }); h += "</ul>"; }
-    if (r.key === "nml" || r.key === "tg") h += "<p><small>Missed-call text-back has a " + $(P.carrier) + " one-time carrier setup fee.</small></p>";
     h += "<p><small>" + esc(P.guarantee) + " " + esc(P.ownerRate) + "</small></p>";
     h += sent ? "<p><strong>Got it! William will reach out within one business day.</strong></p>" : "<p><strong>We couldn't send your answers automatically.</strong> Please email tta.dev.web@gmail.com or call 720-477-8603.</p>";
     h += "</div>";
