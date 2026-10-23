@@ -36,15 +36,18 @@
     err.textContent = bad || ""; return !bad;
   }
   function rec() {
-    var keys = ["website", "getfound", "nml", "tg"], t = tierNum(), k = keys[t], p = P.plans[k];
+    var keys = ["website", "getfound", "nml", "tg", "allin"], t = tierNum();
+    var nPain = f.querySelectorAll("[name=pain]:checked:not([value=everything])").length, nTools = f.querySelectorAll("[name=tools]:checked:not([value=none])").length;
+    if (t < 4 && nPain >= 5 && nTools >= 2) t = 4;
+    var k = keys[t], p = P.plans[k];
     var own = val("site") === "own", once = val("pay") === "once", pre = val("pay") === "prepay", multi = val("pages") === "multi" || t > 0;
     var r = { key: k, plan: p, own: own, once: once, pre: pre, multi: multi, extras: [] };
     if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website rescue (plan member)", $(P.rescuePlan), P.rescuePlanLink]));
     if (val("logo") === "no") r.extras.push(once ? ["Logo and brand kit", $(P.logo) + " (" + $(P.logoPlan) + " with Care or a plan)", P.logoLink] : ["Logo and brand kit (plan member)", $(P.logoPlan), P.logoPlanLink]);
-    var tools = vals("tools"), tgFree = t === 3 ? 1 : 0;
+    var tools = vals("tools"), tgFree = t === 3 ? 1 : (t === 4 ? 2 : 0);
     tools.forEach(function (x) {
       if (x === "quotes" || x === "maint") {
-        if (tgFree) { tgFree = 0; r.extras.push([x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups", "Included in Total Growth", null]); return; }
+        if (tgFree) { tgFree--; r.extras.push([x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups", "Included in " + p.name, null]); return; }
         r.extras.push(x === "quotes" ? ["Quotes, invoices and pay links", $(P.quotes) + "/mo (plan member, setup waived)", null] : ["Maintenance plan signups", $(P.maint) + "/mo (plan member, setup waived)", null]);
       }
     });
@@ -89,9 +92,9 @@
     }
     h += '<div class="paths"><h3>Your two paths</h3>';
     h += "<p><strong>Path 1, Pay Once:</strong> " + $(P.build.one) + " one-page or " + $(P.build.multi) + " multi-page, one time. It's yours from day one. No monthly fees from us, free hosting, and you renew your own domain (about $10&ndash;20/yr). Care " + $(P.care) + "/mo is optional." + (r.once ? "" : ' <a href="' + buildLink + '">Pay ' + $(buildAmt) + " once</a>") + "</p>";
-    h += "<p><strong>Path 2, $0 Down:</strong> " + esc(p.name) + " " + $(p.down) + "/mo, dropping to " + $(p.owner) + "/mo at month 13 when the site is yours. 6-month minimum." + (r.once ? ' <a href="' + p.link + '">Start for $0 down</a>' : "") + "</p>";
+    h += "<p><strong>Path 2, $0 Down:</strong> " + esc(p.name) + " " + $(p.down) + "/mo, dropping to " + $(p.owner) + "/mo at month 13 when the site is yours. " + (p.min || 6) + "-month minimum." + (r.once ? ' <a href="' + p.link + '">Start for $0 down</a>' : "") + "</p>";
     h += "<p><small>Top option: All-In " + $(P.allinDown) + "/mo, dropping to " + $(P.allinOwner) + '/mo at month 13 (12-month minimum), for businesses that want everything done for them. <a href="' + P.allinLink + '">Start All-In</a></small></p></div>';
-    h += "<p><strong>You save " + $(p.saveMo) + "/mo (" + $(p.saveYr) + "/yr)</strong> versus buying the same pieces elsewhere (" + $(p.comp) + "/mo at the low end of published prices). <a href=\"../compare/#savings\">See the math</a></p>";
+    if (p.saveMo) h += "<p><strong>You save " + $(p.saveMo) + "/mo (" + $(p.saveYr) + "/yr)</strong> versus buying the same pieces elsewhere (" + $(p.comp) + "/mo at the low end of published prices). <a href=\"../compare/#savings\">See the math</a></p>";
     if (r.extras.length) { h += "<h3>Also for you</h3><ul>"; r.extras.forEach(function (e) { h += "<li>" + esc(e[0]) + ": " + (e[2] ? '<a href="' + e[2] + '">' + esc(e[1]) + "</a>" : esc(e[1])) + "</li>"; }); h += "</ul>"; }
     h += "<p><small>" + esc(P.guarantee) + " " + esc(P.ownerRate) + "</small></p>";
     h += sent ? "<p><strong>Got it! William will reach out within one business day.</strong></p>" : "<p><strong>We couldn't send your answers automatically.</strong> Please email tta.dev.web@gmail.com or call 720-477-8603.</p>";
