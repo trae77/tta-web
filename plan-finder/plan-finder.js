@@ -39,15 +39,15 @@
     var keys = ["website", "getfound", "nml", "tg"], t = tierNum(), k = keys[t], p = P.plans[k];
     var own = val("site") === "own", once = val("pay") === "once", pre = val("pay") === "prepay", multi = val("pages") === "multi" || t > 0;
     var r = { key: k, plan: p, own: own, once: once, pre: pre, multi: multi, extras: [] };
-    if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website fixes: full rescue", $(P.rescue), P.rescueLink]));
+    if (val("site") === "rescue") r.extras.push(t >= 1 ? ["Website rescue", "Waived on " + p.name, null] : (once ? ["Website rescue", $(P.rescue), P.rescueLink] : ["Website rescue (plan client)", $(P.rescuePlan), P.rescuePlanLink]));
     if (val("logo") === "no") r.extras.push(once ? ["Logo and brand kit", $(P.logo) + " (" + $(P.logoPlan) + " with Care or a plan)", P.logoLink] : ["Logo and brand kit (plan client)", $(P.logoPlan), P.logoPlanLink]);
     var tools = vals("tools"), tgFree = t === 3 ? 1 : 0;
     tools.forEach(function (x) {
       if (x === "quotes" || x === "maint") {
         if (tgFree) { tgFree = 0; r.extras.push([x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups", "Included in Total Growth", null]); return; }
-        r.extras.push([(x === "quotes" ? "Quotes, invoices and pay links" : "Maintenance plan signups") + " (Back-office tool)", "Setup waived + " + $(P.backoffice) + "/mo", P.backofficeLink]);
+        r.extras.push(x === "quotes" ? ["Quotes, invoices and pay links", $(P.quotesSetup) + " setup + " + $(P.quotes) + "/mo", null] : ["Maintenance plan signups", $(P.maintSetup) + " setup + " + $(P.maint) + "/mo", null]);
       }
-      if (x === "ordering") r.extras.push(["Online ordering", "Setup waived + " + $(P.ordering) + "/mo (we'll scope it with you)", null]);
+      if (x === "ordering") r.extras.push(["Online ordering", $(P.orderingSetup) + " setup + " + $(P.ordering) + "/mo (we'll scope it with you)", null]);
     });
     return r;
   }
