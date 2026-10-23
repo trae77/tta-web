@@ -59,3 +59,5 @@ section{padding:48px 0}.shot .s2{right:-8px}
 .qstatus{margin:8px 0 0;font-weight:500}.qstatus.ok{color:var(--ok)}.qstatus.err{color:#B91C1C}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:640px){.qform{grid-template-columns:1fr;padding:16px}}
+
+.cmp-wrap{overflow-x:auto;margin:12px 0}.cmp{width:100%;border-collapse:collapse;font-size:.95rem}.cmp th,.cmp td{text-align:left;padding:8px 10px;border-bottom:1px solid #E2E8F0;vertical-align:top}.cmp th{font-weight:600}.cmp tr.us{background:#F0F9FF}
