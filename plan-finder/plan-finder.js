@@ -87,13 +87,14 @@
       h += '<p class="price">' + $(p.owner) + " <small>/mo</small></p><p>You already own your site, so you get the site-owner rate (" + esc(p.ownerName) + ") from day 1.</p>";
       h += '<p class="ctas"><a class="btn" href="' + p.ownerLink + '">Start ' + esc(p.ownerName) + " at " + $(p.owner) + "/mo</a></p>";
     } else {
-      h += '<p class="price">' + $(p.down) + " <small>/mo, $0 down</small></p><p>Months 1&ndash;12: " + $(p.down) + "/mo. Month 13 on: " + $(p.owner) + "/mo" + (r.key === "website" ? " (Care)" : "") + ". You own the site after " + P.ownAfter + " paid payments. " + P.minMonths + "-month minimum, then month-to-month.</p>";
+      h += '<p class="price">' + $(p.down) + " <small>/mo, $0 down</small></p><p>Months 1&ndash;12: " + $(p.down) + "/mo. Month 13 on: " + $(p.owner) + "/mo" + (r.key === "website" ? " (Care)" : "") + ". You own the site after " + P.ownAfter + " paid payments. " + (p.min || P.minMonths) + "-month minimum, then month-to-month.</p>";
       h += '<p class="ctas"><a class="btn" href="' + p.link + '">Start ' + esc(p.name) + " for $0 down</a></p>";
     }
     h += '<div class="paths"><h3>Your two paths</h3><div class="seg" role="tablist" aria-label="Choose how to pay"' + (r.once ? '' : ' data-start="2"') + '><button type="button" role="tab" id="pf-t1" aria-controls="pf-p1">Path 1: Pay once</button><button type="button" role="tab" id="pf-t2" aria-controls="pf-p2">Path 2: $0 down</button></div>';
     h += '<div id="pf-p1" role="tabpanel" aria-labelledby="pf-t1"><p><strong>Path 1, Pay Once:</strong> ' + $(P.build.one) + " one-page or " + $(P.build.multi) + " multi-page, one time. It's yours from day one. No monthly fees from us, free hosting, and you renew your own domain (about $10&ndash;20/yr). Care " + $(P.care) + "/mo is optional." + (r.once ? "" : ' <a href="' + buildLink + '">Pay ' + $(buildAmt) + " once</a>") + "</p></div><div id=\"pf-p2\" role=\"tabpanel\" aria-labelledby=\"pf-t2\">";
     h += "<p><strong>Path 2, $0 Down:</strong> " + esc(p.name) + " " + $(p.down) + "/mo, dropping to " + $(p.owner) + "/mo at month 13 when the site is yours. " + (p.min || 6) + "-month minimum." + (r.once ? ' <a href="' + p.link + '">Start for $0 down</a>' : "") + "</p>";
-    h += "<p><small>Top option: All-In " + $(P.allinDown) + "/mo, dropping to " + $(P.allinOwner) + '/mo at month 13 (12-month minimum), for businesses that want everything done for them. <a href="' + P.allinLink + '">Start All-In</a></small></p></div></div>';
+    if (r.key !== "allin") h += "<p><small>Top option: All-In " + $(P.allinDown) + "/mo, dropping to " + $(P.allinOwner) + '/mo at month 13 (12-month minimum), for businesses that want everything done for them. <a href="' + P.allinLink + '">Start All-In</a></small></p>';
+    h += "</div></div>";
     if (p.saveMo) h += "<p><strong>You save " + $(p.saveMo) + "/mo (" + $(p.saveYr) + "/yr)</strong> versus buying the same pieces elsewhere (" + $(p.comp) + "/mo at the low end of published prices). <a href=\"../compare/#savings\">See the math</a></p>";
     if (r.extras.length) { h += "<h3>Also for you</h3><ul>"; r.extras.forEach(function (e) { h += "<li>" + esc(e[0]) + ": " + (e[2] ? '<a href="' + e[2] + '">' + esc(e[1]) + "</a>" : esc(e[1])) + "</li>"; }); h += "</ul>"; }
     h += "<p><small>" + esc(P.guarantee) + " " + esc(P.ownerRate) + "</small></p>";
