@@ -7,13 +7,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></head><body>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  .trade-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .65rem .75rem calc(.65rem + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid #E2E8F0; backdrop-filter: blur(8px); }
+  .trade-sticky .btn { min-height: 48px; margin: 0; width: 100%; text-align: center; justify-content: center; font-size: .95rem; box-sizing: border-box; }
+  @media (min-width: 640px) { .trade-sticky { display: none; } }
+</style>
+</head><body>
 <header class="top"><div class="wrap nav">
 <a class="logo" href="/">TTA</a>
 <nav class="links"><a href="/#samples">Samples</a><a href="/#plans">Plans</a><a href="/#addons">Add-ons</a><a href="/#contact">Contact</a></nav>
 </div></header>
 <main><section class="hero"><div class="wrap narrow"><p class="eyebrow">Roofing</p><h1>Websites for roofers</h1><p class="lead">A site built for calls: click-to-call at the top, your services and service areas, and a request-a-quote form. Add the Trades Pack for a financing page, a careers page with applicant follow-up, quotes/invoices/pay links and maintenance-plan signups: $79/mo for plan members. Setup included, 6-month minimum.</p>
-<p class="ctas"><a class="btn" href="/start/?item=Trades%20Pack">Get Your Free Custom Mockup</a><a class="btn ghost" href="demo/">See the demo</a></p></div></section>
+<p class="ctas"><a class="btn" href="/start/?item=Trades%20Pack">Get Your Free Custom Mockup</a><a class="btn ghost" href="tel:+17204778603">Call or text 720-477-8603</a><a class="btn ghost" href="demo/">See the demo</a></p></div></section>
 <section class="alt"><div class="wrap narrow"><h2>What's in the Trades Pack</h2><ul><li>Financing page</li><li>Careers page + applicant follow-up</li><li>Quotes, invoices &amp; pay links</li><li>Maintenance-plan signups</li></ul>
 <p>Trades Pack: $79/mo for plan members. <a class="buy" href="https://buy.stripe.com/bJe5kDcgdbG6gW8fSA7ss2d">Add the pack</a></p>
 <p><small>The demo uses a made-up business (Sample Roofing Co.). It is a sample, not client work.</small></p></div></section>
@@ -25,4 +31,8 @@
 <p><a href="/compare/">Compare everything</a> · <a href="/plan-finder/">Find my plan</a></p></div></div></section>
 <script src="/path-slider.js" defer></script><script src="/intake-links.js" defer></script></main>
 <footer><div class="wrap">© 2026 TTA Web Design · <a href="mailto:tta.dev.web@gmail.com">tta.dev.web@gmail.com</a> · <a href="tel:+17204778603">720-477-8603</a> · Thornton, CO</div></footer>
+<div class="trade-sticky" aria-label="Quick actions">
+<a class="btn" href="/start/?item=Trades%20Pack">Get free mockup</a>
+<a class="btn ghost" href="tel:+17204778603">Call</a>
+</div>
 </body></html>
