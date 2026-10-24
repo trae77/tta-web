@@ -17,8 +17,8 @@
     cur = i; var o = order(), pos = o.indexOf(i);
     steps.forEach(function (s, k) { s.hidden = k !== i; });
     document.getElementById("pf-bar").style.width = ((pos + 1) / o.length * 100) + "%";
-    document.getElementById("pf-stepno").textContent = "Step " + (pos + 1) + " of " + o.length;
-    back.hidden = pos === 0; next.textContent = i === 4 ? "See my plan" : "Next"; err.textContent = "";
+    document.getElementById("pf-stepno").textContent = "Step " + (pos + 1) + " of " + o.length + " · " + steps[i].querySelector("h2").textContent;
+    back.hidden = pos === 0; next.textContent = i === 4 ? "See my plan" : "Next: " + steps[o[pos + 1]].querySelector("h2").textContent; err.textContent = "";
     if (i === 4) window.pfTs();
     window.scrollTo(0, 0);
   }
