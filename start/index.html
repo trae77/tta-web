@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Start your project | TTA Web Design</title>
+<meta name="description" content="Tell us about your business before checkout.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><style>#st label{display:block;margin:.9rem 0 .25rem;font-weight:500}#st input,#st select,#st textarea{width:100%;padding:.65rem;border:1px solid #cbd5e1;border-radius:10px;font:inherit}#st input:focus-visible,#st select:focus-visible,#st textarea:focus-visible{outline:3px solid #2563eb}</style></head><body>
+<header class="top"><div class="wrap nav">
+<a class="logo" href="/">TTA</a>
+<nav class="links"><a href="/#samples">Samples</a><a href="/#plans">Plans</a><a href="/#addons">Add-ons</a><a href="/#contact">Contact</a></nav>
+</div></header>
+<main><section class="hero"><div class="wrap narrow"><p class="eyebrow">Before checkout</p><h1>Tell us about your business</h1>
+<p class="lead">Two minutes. This goes straight to William so your build can start the day you pay. After you send it, you go to the secure Stripe checkout.</p>
+<p id="st-item" class="callout" hidden></p></div></section>
+<section><div class="wrap narrow">
+<form id="st" novalidate>
+<p><strong>Never send passwords.</strong> We'll ask you to add us as a user or manager on your accounts instead.</p>
+<label for="f-bn">Business name *</label><input id="f-bn" name="business_name" required maxlength="120" autocomplete="organization">
+<label for="f-cn">Your name *</label><input id="f-cn" name="contact_name" required maxlength="80" autocomplete="name">
+<label for="f-em">Email *</label><input id="f-em" name="email" type="email" required maxlength="120" autocomplete="email">
+<label for="f-ph">Phone</label><input id="f-ph" name="phone" type="tel" maxlength="40" autocomplete="tel">
+<label for="f-tr">Trade or industry</label><input id="f-tr" name="trade" maxlength="80">
+<label for="f-ws">Current website (if any)</label><input id="f-ws" name="current_website" maxlength="200" placeholder="yourbusiness.com">
+<label for="f-dm">Domain status</label><select id="f-dm" name="domain"><option value="">Choose one</option><option>I own a domain</option><option>I need help registering one</option><option>Not sure</option></select>
+<label for="f-ar">Service area / cities</label><input id="f-ar" name="service_area" maxlength="200">
+<label for="f-sv">Main services (top 3–5)</label><textarea id="f-sv" name="services" rows="3" maxlength="1500"></textarea>
+<label for="f-nt">Anything else we should know?</label><textarea id="f-nt" name="notes" rows="3" maxlength="1500"></textarea>
+<label for="f-lg">Logo (optional, under 2 MB)</label><input id="f-lg" type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp,application/pdf">
+<div style="position:absolute;left:-9999px" aria-hidden="true"><label for="f-hp">Leave blank</label><input id="f-hp" name="website_url_confirm" tabindex="-1" autocomplete="off"></div>
+<p><button class="btn" type="submit" id="st-go">Send and continue to checkout</button></p>
+<p id="st-msg" role="status" aria-live="polite"></p>
+<p><small><a id="st-skip" href="#">Skip and go straight to checkout</a></small></p>
+</form></div></section>
+<script src="start.js"></script></main>
+<footer><div class="wrap">© 2026 TTA Web Design · <a href="mailto:tta.dev.web@gmail.com">tta.dev.web@gmail.com</a> · <a href="tel:+17204778603">720-477-8603</a> · Thornton, CO</div></footer>
+</body></html>
