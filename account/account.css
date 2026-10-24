@@ -1,0 +1,57 @@
+/* Account shell only. Tokens and buttons come from /styles.css. */
+main.acct > section.view { padding: 0; }
+.acct { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; }
+.acct h1 { font-size: clamp(1.75rem, 2vw + 1.1rem, 2.25rem); }
+.acct-top .nav { height: auto; min-height: 64px; flex-wrap: wrap; row-gap: 4px; }
+.acct-kicker { color: var(--ink); font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; }
+#logout { display: none; margin-left: auto; color: var(--ink); font-weight: 600; text-decoration: none; }
+html[data-view="dashboard"] #logout { display: inline; }
+
+.view { display: none; }
+html[data-view="login"] #view-login,
+html:not([data-view]) #view-login { display: block; }
+html[data-view="check-email"] #view-check,
+html[data-view="expired"] #view-expired,
+html[data-view="denied"] #view-denied,
+html[data-view="dashboard"] #view-dashboard { display: block; }
+
+.acct .card { margin: 0 0 16px; }
+.acct .card h2 { margin-bottom: 8px; }
+.acct .card h3 { font-size: 1.05rem; margin: 16px 0 8px; }
+.acct .price { margin: 0 0 8px; }
+.acct ul { margin: 0 0 16px; padding-left: 1.2em; }
+.acct li { margin: 0 0 6px; }
+.plan-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin: 0 0 12px; }
+.plan-head h2 { margin: 0; }
+.pill { display: inline-block; margin: 0; border-radius: 999px; padding: 4px 10px; font-weight: 600; font-size: 1rem; line-height: 1.4; }
+.pill.active { background: #CCFBF1; color: #0F766E; }
+.pill.past_due { background: #FEF3C7; color: #92400E; }
+.pill.canceled { background: #E2E8F0; color: #334155; }
+
+.acct-form, .edit-form { display: grid; gap: 8px; margin: 0 0 16px; }
+.acct-form label, .edit-form label { color: var(--ink); font-weight: 600; }
+.acct input, .acct textarea {
+  font: 400 1rem/1.4 Inter, system-ui, sans-serif;
+  color: var(--ink);
+  border: 1px solid #CBD5E1;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  background: #fff;
+}
+.acct input:focus, .acct textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.acct button.btn { border: 0; cursor: pointer; width: 100%; font: 600 1rem/1.4 Inter, system-ui, sans-serif; }
+.acct .btn.full { display: flex; align-items: center; justify-content: center; width: 100%; margin: 8px 0 0; text-align: center; }
+.acct .help, .acct .muted, .draft-note, .acct .err { font-size: 1rem; }
+.draft-note { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 12px; padding: 12px 16px; color: var(--ink); }
+.acct .err { color: #B91C1C; min-height: 1.4em; margin: 0; }
+.email-row { padding: 12px 0; border-top: 1px solid #E2E8F0; }
+.email-row strong { color: var(--ink); display: block; }
+.email-row p { margin: 4px 0 0; }
+.acct details.draft { margin-top: 8px; }
+.acct details.draft ul { margin: 12px 0 0; }
+.site-url { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .acct { padding: 24px 16px 48px; }
+  .acct .card { padding: 16px; }
+}
