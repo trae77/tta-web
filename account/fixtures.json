@@ -1,0 +1,221 @@
+{
+  "source": "Rates copied from plan-finder/index.html window.PF_PRICES (generated from prices.json). Inclusion bullets follow the 2026-10-23 customer-dashboard UX table (PRICE-SHEET). Pack bullets match the live site add-on rows. No Stripe price IDs.",
+  "guarantee": "30-day money-back on monthly subscription fees only (excludes third-party domain fees); the site license ends on a refund.",
+  "careMonthly": 69,
+  "payOnce": { "onePage": 500, "multiPage": 1200 },
+  "packs": {
+    "trades": {
+      "label": "Trades Pack",
+      "monthly": 79,
+      "bullets": [
+        "Financing page",
+        "Careers page with applicant follow-up",
+        "Quotes, invoices and pay links",
+        "Maintenance-plan signups"
+      ]
+    },
+    "restaurant": {
+      "label": "Restaurant & Bar Pack",
+      "monthly": 59,
+      "bullets": [
+        "Private events page",
+        "TV menu boards",
+        "eGift card page",
+        "QR menu page"
+      ]
+    }
+  },
+  "plans": {
+    "starter": {
+      "label": "Starter",
+      "path2Monthly": 129,
+      "ownerMonthly": 69,
+      "ownerLabel": "Care",
+      "prepay": 1315,
+      "bullets": [
+        "One-page site",
+        "Hosting and security",
+        "Up to 5 small edit requests/mo (30 min each)",
+        "Member prices on add-ons (30% off, setup fees waived)"
+      ]
+    },
+    "care": {
+      "label": "Care",
+      "ownerMonthly": 69,
+      "ownerLabel": "Care",
+      "bullets": [
+        "Up to 5 small content edits/mo (30 min each; unused don't roll over)",
+        "Security updates",
+        "Uptime monitoring",
+        "Backups",
+        "Fix-it help",
+        "Member prices on add-ons (30% off, setup fees waived)"
+      ]
+    },
+    "get-found": {
+      "label": "Get Found",
+      "path2Monthly": 249,
+      "ownerMonthly": 199,
+      "ownerLabel": "Get Found",
+      "prepay": 2539,
+      "path2Lead": [
+        "Starter base: one-page site, hosting, security, up to 5 small edit requests/mo (30 min each), and member prices on add-ons (30% off, setup fees waived)",
+        "Multi-page site"
+      ],
+      "ownerLead": [
+        "Care base: up to 5 small content edits/mo (30 min each; unused don't roll over), security updates, uptime monitoring, backups, fix-it help, and member prices on add-ons (30% off, setup fees waived)"
+      ],
+      "bullets": [
+        "Google Business Profile setup and management",
+        "AI search setup",
+        "Directory listing cleanup",
+        "Local SEO",
+        "Website rescue waived",
+        "Free ongoing Google Ads and Local Services Ads management",
+        "Monthly call tracking report"
+      ]
+    },
+    "never-miss-a-lead": {
+      "label": "Never Miss a Lead",
+      "path2Monthly": 349,
+      "ownerMonthly": 279,
+      "ownerLabel": "Never Miss a Lead",
+      "prepay": 3559,
+      "bullets": [
+        "Everything in Get Found",
+        "AI chatbot and lead responder",
+        "Review requests",
+        "Online booking",
+        "Payments setup",
+        "Missed-call text-back (no carrier fee)"
+      ]
+    },
+    "total-growth": {
+      "label": "Total Growth",
+      "path2Monthly": 449,
+      "ownerMonthly": 379,
+      "ownerLabel": "Total Growth",
+      "prepay": 4579,
+      "bullets": [
+        "Everything in Never Miss a Lead",
+        "Email and text campaigns",
+        "AI-assisted templated social posts from job photos (up to 8/mo)",
+        "One back-office tool of choice (quotes/invoices/pay links OR maintenance plan signups)",
+        "One free custom page"
+      ]
+    },
+    "all-in": {
+      "label": "All-In",
+      "path2Monthly": 649,
+      "ownerMonthly": 549,
+      "ownerLabel": "All-In",
+      "prepay": 6620,
+      "bullets": [
+        "Everything in Total Growth",
+        "Private AI Assistant",
+        "Every custom page",
+        "Both back-office tools",
+        "5 city pages",
+        "Spanish version",
+        "Conversion audit",
+        "Accessibility check",
+        "Logo kit",
+        "Monthly newsletter",
+        "One industry pack of choice",
+        "New tools as they launch"
+      ]
+    }
+  },
+  "fixtures": [
+    {
+      "id": "starter-path2",
+      "previewLabel": "Starter, months 1–12, active",
+      "planKey": "starter",
+      "rateMode": "path2",
+      "status": "active",
+      "packs": [],
+      "payOnce": null,
+      "siteUrl": null
+    },
+    {
+      "id": "nml-path2",
+      "previewLabel": "Never Miss a Lead, months 1–12, active",
+      "planKey": "never-miss-a-lead",
+      "rateMode": "path2",
+      "status": "active",
+      "packs": [],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    },
+    {
+      "id": "gf-owner-trades",
+      "previewLabel": "Get Found, site-owner, Trades Pack",
+      "planKey": "get-found",
+      "rateMode": "owner",
+      "status": "active",
+      "packs": ["trades"],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    },
+    {
+      "id": "nml-owner-restaurant",
+      "previewLabel": "Never Miss a Lead, site-owner, Restaurant & Bar Pack",
+      "planKey": "never-miss-a-lead",
+      "rateMode": "owner",
+      "status": "active",
+      "packs": ["restaurant"],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    },
+    {
+      "id": "tg-owner-both",
+      "previewLabel": "Total Growth, site-owner, both packs",
+      "planKey": "total-growth",
+      "rateMode": "owner",
+      "status": "active",
+      "packs": ["trades", "restaurant"],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    },
+    {
+      "id": "allin-path2-pastdue",
+      "previewLabel": "All-In, months 1–12, past due",
+      "planKey": "all-in",
+      "rateMode": "path2",
+      "status": "past_due",
+      "packs": [],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    },
+    {
+      "id": "tg-path2-canceled",
+      "previewLabel": "Total Growth, months 1–12, canceled",
+      "planKey": "total-growth",
+      "rateMode": "path2",
+      "status": "canceled",
+      "packs": [],
+      "payOnce": null,
+      "siteUrl": null
+    },
+    {
+      "id": "care-path1",
+      "previewLabel": "Pay-once with Care",
+      "planKey": "care",
+      "rateMode": "owner",
+      "status": "active",
+      "packs": [],
+      "payOnce": "multi",
+      "siteUrl": null
+    },
+    {
+      "id": "gf-yearly",
+      "previewLabel": "Get Found, yearly prepay",
+      "planKey": "get-found",
+      "rateMode": "prepay",
+      "status": "active",
+      "packs": [],
+      "payOnce": null,
+      "siteUrl": "https://example.com"
+    }
+  ]
+}
