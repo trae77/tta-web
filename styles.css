@@ -67,3 +67,30 @@ section{padding:48px 0}.shot .s2{right:-8px}
 .tbl-wrap{margin:10px 0 22px}.addon-tbl{width:100%;border-collapse:collapse;font-size:.95rem}.addon-tbl th,.addon-tbl td{text-align:left;padding:9px 10px;border-bottom:1px solid rgba(148,163,184,.35);vertical-align:top}.addon-tbl small{display:block;opacity:.8;margin-top:3px}.addon-tbl .buy{margin-left:6px;font-size:.85rem}
 @media(max-width:900px){.prepay{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.prepay{grid-template-columns:1fr}.addon-tbl thead{display:none}.addon-tbl,.addon-tbl tbody,.addon-tbl tr,.addon-tbl td{display:block;width:100%}.addon-tbl tr{border-bottom:1px solid rgba(148,163,184,.5);padding:8px 0}.addon-tbl td{border:0;padding:4px 0}.addon-tbl td[data-l]:not(:first-child)::before{content:attr(data-l) ": ";font-weight:600}}
+/* ===== redesign-v2 proposal overrides ===== */
+:root{--body:#334155;--accent:#4338CA;--accent-d:#C7D2FE;--line:#E2E8F0}
+body{font-size:1.0625rem;line-height:1.65}
+p,li{max-width:66ch}
+h2{font-size:clamp(1.6rem,2.5vw + .9rem,2.25rem);letter-spacing:-.01em}
+h3{font-size:1.2rem}
+main>section{padding:56px 0}
+@media(min-width:900px){main>section{padding:88px 0}}
+.hero{padding-top:40px!important;padding-bottom:24px!important}
+.hero .lead,.hero p{font-size:1.15rem}
+.btn{min-height:48px;padding:13px 24px;font-weight:600;font-size:1rem;line-height:1.4}
+.card ul{padding-left:1.1em}.card li{margin:0 0 6px}
+.card{padding:24px}
+.eyebrow{color:#4338CA}
+.dark{color:#E2E8F0}.addons em{color:#99F6E4}.addons small{color:#E2E8F0}
+details.fine{margin:12px 0 20px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px 16px}
+details.fine summary{cursor:pointer;font-weight:600;color:#0F172A}
+details.fine p{font-size:.95rem;margin:10px 0 0}
+.trust-strip{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.trust-strip li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-weight:500;color:#0F172A;font-size:.98rem}
+.trust-strip li::before{content:"✓ ";color:#0F766E;font-weight:700}
+.hero-note{font-size:.95rem!important;color:#334155}
+.once-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 28px}
+.sub-h{margin-top:8px}
+.section-sm{padding:32px 0!important}
+@media(max-width:900px){.trust-strip{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.trust-strip{grid-template-columns:1fr}.once-cards{grid-template-columns:1fr}main>section{padding:44px 0}.hero h1{font-size:2.4rem}.seg button{min-height:48px}}
