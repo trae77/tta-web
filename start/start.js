@@ -5,7 +5,7 @@ var f=document.getElementById("st"),msg=document.getElementById("st-msg"),btn=do
 if(item){var it=document.getElementById("st-item");it.textContent="You picked: "+item;it.hidden=false;}
 if(!go){btn.textContent="Send";skip.parentNode.hidden=true;}
 skip.onclick=function(e){e.preventDefault();if(go)location.href=go;};
-function done(){if(go){msg.textContent="Thanks! Taking you to checkout…";setTimeout(function(){location.href=go;},900);}else msg.textContent="Thanks! William will reach out within one business day.";}
+function done(){if(go){msg.textContent="Thanks! Taking you to checkout…";setTimeout(function(){location.href=go;},900);}else msg.textContent="Thanks! You'll get your free mockup within 24 hours.";}
 f.addEventListener("submit",function(e){e.preventDefault();
  var bad=[].filter.call(f.querySelectorAll("[required]"),function(x){return !x.value.trim()||(x.type=="email"&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x.value));});
  if(bad.length){msg.textContent="Please fill in: "+bad.map(function(x){return f.querySelector('label[for="'+x.id+'"]').textContent.replace(" *","");}).join(", ");bad[0].focus();return;}
