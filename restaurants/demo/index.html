@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DEMO: Sample Bar &amp; Grill | Restaurant &amp; Bar Pack demo by TTA Web Dev</title>
+<style>
+:root{--bg:#121417;--card:#1c2026;--ink:#f3f1ec;--mute:#c4c0b8;--acc:#e0a33a;--acc2:#2f8f6b;--line:#2c323a}
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--acc)}.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.demo-bar{background:var(--acc);color:#111;text-align:center;font-weight:700;padding:8px 12px;font-size:14px}
+header{position:sticky;top:0;z-index:5;background:rgba(18,20,23,.95);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:var(--ink)}
+.mark{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 18%,var(--acc) 19% 100%);box-shadow:0 0 0 3px #111,0 0 0 5px var(--acc)}
+nav a{color:var(--mute);text-decoration:none;margin-left:18px;font-size:15px}nav a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--acc);color:var(--acc);background:none;font-size:16px;cursor:pointer}
+.btn.solid{background:var(--acc);color:#111}.btn[disabled]{opacity:.6;cursor:not-allowed}
+.hero{padding:64px 0 56px;background:linear-gradient(135deg,#1a2a24 0%,#121417 60%),#121417;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-80px;top:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#2f8f6b55,transparent 70%)}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.1;margin:0 0 14px}h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 8px}
+.lead{color:var(--mute);max-width:620px;font-size:19px}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+section{padding:56px 0;border-top:1px solid var(--line)}.band{background:#171a1f}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#2f8f6b33;color:#7fd8b2;padding:3px 9px;border-radius:99px;margin-bottom:10px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:19px}.mute{color:var(--mute)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tabs button{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:15px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--acc);color:#111;border-color:var(--acc)}
+.menu-item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}.menu-item b{display:block}
+.hours td{padding:6px 16px 6px 0}.today{color:var(--acc);font-weight:700}
+.status{display:inline-block;margin-top:8px;font-weight:700}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 6px;min-height:92px;font-size:14px}
+.day b{display:block;color:var(--mute);font-size:12px;text-transform:uppercase}.ev{display:block;margin-top:6px;padding:3px 6px;border-radius:6px;font-size:13px;background:#e0a33a26;color:#f2c879}.ev.g{background:#2f8f6b33;color:#7fd8b2}
+form label{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}form input,form select,form textarea{width:100%;padding:11px;border-radius:9px;border:1px solid var(--line);background:#0f1114;color:var(--ink);font-size:16px}
+.note{background:#e0a33a1a;border:1px solid #e0a33a66;border-radius:10px;padding:10px 14px;font-size:14px;margin-top:12px}
+.map{height:220px;border-radius:14px;background:repeating-linear-gradient(0deg,#1c2026 0 38px,#232831 38px 40px),#1c2026;position:relative;overflow:hidden}
+.map:before{content:"";position:absolute;left:0;right:0;top:48%;height:14px;background:#2c323a}.map:after{content:"";position:absolute;left:58%;top:0;bottom:0;width:14px;background:#2c323a}
+.pin{position:absolute;left:calc(58% - 11px);top:calc(48% - 30px);width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--acc);z-index:2}
+.tv{aspect-ratio:16/9;background:#0b0c0e;border:8px solid #2a2e35;border-radius:10px;padding:14px;display:flex;flex-direction:column;justify-content:center}
+.tv .row{display:flex;justify-content:space-between;border-bottom:1px solid #222;padding:4px 0;font-size:15px}
+.qr{width:110px;height:110px;background:conic-gradient(#fff 0 25%,#111 0 50%,#fff 0 75%,#111 0) 0 0/22px 22px;border:8px solid #fff;border-radius:6px}
+.callbar{display:none}footer{padding:30px 0 90px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:760px){nav{display:none}.cal{grid-template-columns:1fr 1fr}.callbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:9;gap:8px;padding:10px;background:#0f1114;border-top:1px solid var(--line)}.callbar a{flex:1;text-align:center}}
+</style></head><body>
+<div class="demo-bar">DEMO PAGE — fictional sample venue. All names, numbers, menu items and events are sample data.</div>
+<header><div class="wrap"><a class="logo" href="#top"><span class="mark"></span>Sample Bar &amp; Grill</a>
+<nav><a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#calendar">Events</a><a href="#private">Private Events</a><a href="#visit">Visit</a></nav>
+<a class="btn solid" href="tel:+15555550142">Call</a></div></header>
+<main id="top">
+<div class="hero"><div class="wrap"><span class="tag">Restaurant &amp; Bar Pack demo</span>
+<h1>Food, drinks and game nights at Sample Bar &amp; Grill</h1>
+<p class="lead">This is how a bar or restaurant site looks with the Restaurant &amp; Bar Pack: menu, hours, events, private events and gift cards, all one tap from your phone.</p>
+<div class="cta"><a class="btn solid" href="tel:+15555550142">Call (555) 555-0142</a><a class="btn" href="#visit">Get directions</a><a class="btn" href="#private">Book a private event</a></div></div></div>
+
+<section id="menu"><div class="wrap"><span class="tag">Live demo: QR menu page</span><h2>Menu</h2><p class="mute">Sample items. The owner can update these any time. Guests scan the table QR code to open this page.</p>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="food">Food</button><button role="tab" aria-selected="false" data-t="drinks">Drinks</button><button role="tab" aria-selected="false" data-t="hh">Happy hour</button></div>
+<div class="grid" style="grid-template-columns:1fr auto;align-items:start"><div id="menulist"></div><div class="card" style="text-align:center"><div class="qr" style="margin:auto"></div><p class="mute" style="font-size:13px;margin:8px 0 0">Sample QR code<br>(not scannable)</p></div></div></div></section>
+
+<section id="hours" class="band"><div class="wrap grid"><div><span class="tag">Live demo: hours</span><h2>Hours</h2><table class="hours" id="hourtbl"></table><span class="status" id="openstat"></span></div>
+<div><span class="tag">Live demo: TV menu board</span><h2>On the TVs tonight</h2><div class="tv"><div style="color:var(--acc);font-weight:800;margin-bottom:6px">TONIGHT'S SPECIALS (sample)</div><div class="row"><span>Smash burger + fries</span><span>Special</span></div><div class="row"><span>Wing basket</span><span>Happy hour</span></div><div class="row"><span>House lager</span><span>Game night</span></div></div></div></div></section>
+
+<section id="calendar"><div class="wrap"><span class="tag">Live demo: events &amp; specials calendar</span><h2>This week</h2><p class="mute">Sample events. Tap a day to see details.</p><div class="cal" id="cal"></div><p id="evdetail" class="note" style="display:none"></p></div></section>
+
+<section id="private" class="band"><div class="wrap grid"><div><span class="tag">Live demo: private events page</span><h2>Private events</h2><p class="mute">Birthdays, team nights, watch parties and work events. Tell us the date and group size and we'll get back to you.</p>
+<div class="card"><h3>What a venue can list here</h3><p class="mute">Room options, group sizes, food and drink packages, and booking rules, written by the owner.</p></div></div>
+<form onsubmit="return false" aria-label="Private event inquiry (demo, inactive)"><label>Name</label><input placeholder="Sample Name" disabled><label>Phone or email</label><input placeholder="(555) 555-0100" disabled>
+<label>Date</label><input type="date" disabled><label>Group size</label><select disabled><option>10–20 guests</option></select><label>Details</label><textarea rows="3" disabled placeholder="Tell us about your event"></textarea>
+<p><button class="btn solid" disabled>Send inquiry</button></p><p class="note">Demo form: inactive. Nothing is sent or stored.</p></form></div></section>
+
+<section id="gift"><div class="wrap"><span class="tag">Demo placeholders</span><h2>Gift cards &amp; ordering</h2><div class="grid">
+<div class="card"><h3>eGift cards</h3><p class="mute">A gift card page linked to the venue's own gift card provider.</p><button class="btn solid" onclick="demo(this)">Buy an eGift card (demo)</button></div>
+<div class="card"><h3>Online ordering</h3><p class="mute">Shown for layout only. Online ordering is not part of the pack yet.</p><button class="btn" onclick="demo(this)">Order online (demo)</button></div></div></div></section>
+
+<section id="visit" class="band"><div class="wrap grid"><div><span class="tag">Live demo: click-to-call &amp; directions</span><h2>Visit us</h2><p>123 Example Street<br>Sampletown, ST 00000 <span class="mute">(fictional)</span></p>
+<div class="cta"><a class="btn solid" href="tel:+15555550142">Call (555) 555-0142</a><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=123+Example+Street" target="_blank" rel="noopener">Get directions</a></div></div><div class="map" aria-label="Sample map illustration"><span class="pin"></span></div></div></section>
+</main>
+<footer><div class="wrap">Sample Bar &amp; Grill is a fictional venue. Demo built by TTA Web Dev to show the Restaurant &amp; Bar Pack: private events page, TV menu boards, eGift card page and QR menu page.</div></footer>
+<div class="callbar"><a class="btn solid" href="tel:+15555550142">Call</a><a class="btn" href="#visit">Directions</a><a class="btn" href="#menu">Menu</a></div>
+<script>
+const M={food:[["Smash burger","Two patties, cheese, pickles"],["Wing basket","Buffalo, BBQ or dry rub"],["Loaded fries","Cheese, bacon, green onion"],["Grilled chicken sandwich","Lettuce, tomato, house sauce"]],
+drinks:[["House lager","Draft, local style"],["Seasonal cocktail","Ask your server"],["Craft soda","Root beer or ginger ale"]],
+hh:[["Half-price apps","Mon–Fri, 3–6 PM (sample)"],["Draft specials","Mon–Fri, 3–6 PM (sample)"]]};
+function show(t){document.getElementById('menulist').innerHTML=M[t].map(i=>`<div class="menu-item"><span><b>${i[0]}</b><span class="mute">${i[1]}</span></span><span class="mute">sample</span></div>`).join('');
+document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t==t))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>show(b.dataset.t));show('food');
+const D=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],H=[[12,22],[15,24],[15,24],[15,24],[15,25],[12,26],[11,26]];
+const fmt=h=>{h%=24;return (h%12||12)+(h<12?' AM':' PM')},now=new Date(),d=now.getDay();
+document.getElementById('hourtbl').innerHTML=D.map((n,i)=>`<tr class="${i==d?'today':''}"><td>${n}</td><td>${fmt(H[i][0])} – ${fmt(H[i][1])}</td></tr>`).join('');
+const hr=now.getHours();const open=hr>=H[d][0]&&hr<H[d][1];document.getElementById('openstat').textContent=(open?'Open now':'Closed now')+' (sample hours)';document.getElementById('openstat').style.color=open?'#7fd8b2':'#f2a0a0';
+const E={1:[["Trivia night","g"]],2:[["Taco special",""]],3:[["Pool league","g"]],4:[["Karaoke","g"]],5:[["Live music","g"],["Fish fry",""]],6:[["Game day watch party","g"]],0:[["Brunch special",""]]};
+document.getElementById('cal').innerHTML=D.map((n,i)=>`<div class="day" data-i="${i}"><b>${n}</b>${(E[i]||[]).map(e=>`<span class="ev ${e[1]}">${e[0]}</span>`).join('')}</div>`).join('');
+document.querySelectorAll('.day').forEach(x=>x.onclick=()=>{const p=document.getElementById('evdetail');p.style.display='block';p.textContent=D[x.dataset.i]+': '+(E[x.dataset.i]||[]).map(e=>e[0]).join(', ')+' (sample event, details set by the venue)'});
+function demo(b){b.textContent='Demo only: not connected';b.disabled=true}
+</script></body></html>
