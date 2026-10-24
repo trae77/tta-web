@@ -104,11 +104,12 @@ details.fine p{font-size:.95rem;margin:10px 0 0}
 .pop-card h4{font-family:"Space Grotesk",system-ui,sans-serif;font-size:1.1875rem;font-weight:600;color:#0F172A;line-height:1.25;margin:0 0 .4rem}
 .pop-card p{max-width:none}
 .pop-card .blurb{font-size:.96875rem;color:#475569;line-height:1.45;margin:0 0 .85rem}
-.pop-card .blurb a{color:#4F46E5;display:inline-flex;align-items:center;min-height:44px;padding:0 2px}
+#addons .pop-card .blurb a{display:inline;min-height:0;padding:0;color:#4F46E5;text-decoration:underline}
 .strip{display:grid;gap:.75rem}
 .pop-card .k{display:block;font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#475569;margin:0 0 2px}
 .pop-card .amt{display:block;font-family:"Space Grotesk",system-ui,sans-serif;font-size:1.3125rem;font-weight:700;color:#0F172A;line-height:1.2}
 .pop-card .mem-amt{display:block;font-size:1rem;font-weight:600;color:#0F172A;line-height:1.35}
+#addons .pop-card .mem{border-top:1px solid #E2E8F0;padding-top:.75rem;margin-top:.15rem}
 .pop-buys{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .pop-buys a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 14px;background:#4F46E5;color:#fff;text-decoration:none;font-weight:600;border-radius:12px;text-align:center;line-height:1.2}
 .pop-card a:focus-visible{outline:2px solid #4F46E5;outline-offset:2px}
@@ -128,3 +129,11 @@ details.fine p{font-size:.95rem;margin:10px 0 0}
 #catalog .addon-tbl .buy{display:inline-flex;align-items:center;min-height:44px;margin:4px 8px 4px 0;padding:8px 12px;font-size:1rem}
 }
 @media(min-width:900px){#catalog .tbl-wrap{overflow-x:auto}}
+
+/* Sticky mockup bar vs chat: content clears the bar; bubble sits above it. */
+@media(max-width:640px){
+body:has(a.sticky){--sticky-cta-h:76px;padding-bottom:calc(var(--sticky-cta-h, 56px) + env(safe-area-inset-bottom, 0px))}
+body:has(a.sticky) .sticky{bottom:calc(16px + env(safe-area-inset-bottom, 0px))}
+body:has(a.sticky) .tc-b{bottom:calc(var(--sticky-cta-h, 56px) + 12px + env(safe-area-inset-bottom, 0px))!important}
+body:has(a.sticky) .tc-p{bottom:calc(var(--sticky-cta-h, 56px) + 12px + 60px + 12px + env(safe-area-inset-bottom, 0px))!important}
+}
